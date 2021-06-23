@@ -11,6 +11,10 @@ namespace NavigationMVVM.Services
     public class LayoutNavigationService<TViewModel> : INavigationService<TViewModel> where TViewModel : ViewModelBase
     {
         private readonly NavigationStore _navigationStore;
+
+        /// <summary>
+        /// I am using Func<>s here, so that the ViewModel that will be passed when creating a LayoutViewModel should be a new instance every single time
+        /// </summary>
         private readonly Func<TViewModel> _createViewModel;
         private readonly Func<NavigationBarViewModel> _createNavigationBarViewModel;
 

@@ -19,6 +19,26 @@ namespace NavigationMVVM.ViewModels
             _accountStore = accountStore;
 
             NavigateHomeCommand = new NavigateCommand<HomeViewModel>(homeNavigationService);
+
+            //notify this ViewModel (AccountViewModel) that the CurrentAccount has changed
+            _accountStore.CurrentAccountChanged += OnCurrentAccountChanged;
+        }
+
+        ~AccountViewModel()
+        {
+
+        }
+
+        private void OnCurrentAccountChanged()
+        {
+            OnPropertyChanged(nameof(Username));
+            OnPropertyChanged(nameof(Email));
+        }
+
+        public override void Dispose()
+        {
+            _accountStore.CurrentAccountChanged -= OnCurrentAccountChanged;
+            base.Dispose();
         }
     }
 }

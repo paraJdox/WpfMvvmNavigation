@@ -1,4 +1,5 @@
 ﻿using NavigationMVVM.Models;
+using System;
 
 namespace NavigationMVVM.Stores
 {
@@ -15,9 +16,16 @@ namespace NavigationMVVM.Stores
             set
             {
                 _currentAccount = value;
+                CurrentAccountChanged?.Invoke();
             }
         }
-
         public bool IsLoggedIn => CurrentAccount != null;
+
+        public event Action CurrentAccountChanged;
+
+        public void Logout()
+        {
+            CurrentAccount = null;
+        }
     }
 }
