@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 D:\Visual Studio\NavigationMVVM\NavigationMVVM\App.xaml
-5-1527907700
+6-1688907182
 
-231224544706
+27-164393776
 192-1533232326
-Components\NavigationBar.xaml;MainWindow.xaml;Views\AccountView.xaml;Views\HomeView.xaml;Views\LoginView.xaml;
+Components\Layout.xaml;Components\NavigationBar.xaml;MainWindow.xaml;Views\AccountView.xaml;Views\HomeView.xaml;Views\LoginView.xaml;
 
-True
+False
 

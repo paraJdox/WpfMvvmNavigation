@@ -12,23 +12,16 @@ namespace NavigationMVVM
     {
         private readonly AccountStore _accountStore; //represents the account store that we will be using all throughout the application
         private readonly NavigationStore _navigationStore;
-        private readonly NavigationBarViewModel _navigationBarViewModel;
 
         public App()
         {
             _accountStore = new AccountStore();
             _navigationStore = new NavigationStore();
-            _navigationBarViewModel = new NavigationBarViewModel(
-                _accountStore,
-                CreateHomeNavigationService(),
-                CreateAccountNavigationService(),
-                CreateLoginNavigationService()
-                );
         }
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            NavigationService<HomeViewModel> homeNavigationService = CreateHomeNavigationService();
+            INavigationService<HomeViewModel> homeNavigationService = CreateHomeNavigationService();
             homeNavigationService.Navigate();
 
             MainWindow = new MainWindow()
@@ -40,25 +33,40 @@ namespace NavigationMVVM
             base.OnStartup(e);
         }
 
-        private NavigationService<HomeViewModel> CreateHomeNavigationService()
+        private INavigationService<HomeViewModel> CreateHomeNavigationService()
         {
-            return new NavigationService<HomeViewModel>(
+            //use LayoutNavigationService if you need the View to be in a Layout 
+            return new LayoutNavigationService<HomeViewModel>(
                 _navigationStore,
-                () => new HomeViewModel(_navigationBarViewModel, CreateLoginNavigationService()));
+                () => new HomeViewModel(CreateLoginNavigationService()),
+                CreateNavigationBarViewModel);
         }
 
-        private NavigationService<LoginViewModel> CreateLoginNavigationService()
+        private INavigationService<LoginViewModel> CreateLoginNavigationService()
         {
+            //use NavigationService if you don't need the View to be in a Layout 
             return new NavigationService<LoginViewModel>(
                 _navigationStore,
                 () => new LoginViewModel(_accountStore, CreateAccountNavigationService()));
         }
 
-        private NavigationService<AccountViewModel> CreateAccountNavigationService()
+        private INavigationService<AccountViewModel> CreateAccountNavigationService()
         {
-            return new NavigationService<AccountViewModel>(
+            //use LayoutNavigationService if you need the View to be in a Layout 
+            return new LayoutNavigationService<AccountViewModel>(
                  _navigationStore,
-                 () => new AccountViewModel(_navigationBarViewModel, _accountStore, CreateHomeNavigationService()));
+                 () => new AccountViewModel(_accountStore, CreateHomeNavigationService()),
+                 CreateNavigationBarViewModel);
+        }
+
+        private NavigationBarViewModel CreateNavigationBarViewModel()
+        {
+            return new NavigationBarViewModel(
+                           _accountStore,
+                           CreateHomeNavigationService(),
+                           CreateAccountNavigationService(),
+                           CreateLoginNavigationService()
+                       );
         }
     }
 }
