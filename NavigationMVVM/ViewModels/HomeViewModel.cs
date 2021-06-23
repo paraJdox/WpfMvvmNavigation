@@ -1,6 +1,5 @@
 ﻿using NavigationMVVM.Commands;
 using NavigationMVVM.Services;
-using NavigationMVVM.Stores;
 using System.Windows.Input;
 
 namespace NavigationMVVM.ViewModels
@@ -9,13 +8,15 @@ namespace NavigationMVVM.ViewModels
     {
         public string WelcomeMessage => "Welcome to my application.";
 
+        public NavigationBarViewModel NavigationBarViewModel { get; }
+
         public ICommand NavigateAccountCommand { get; }
 
-        public HomeViewModel(AccountStore accountStore, NavigationStore navigationStore)
+        public HomeViewModel(NavigationBarViewModel navigationBarViewModel, NavigationService<LoginViewModel> loginNavigationService)
         {
-            NavigateAccountCommand = new NavigateCommand<LoginViewModel>(new NavigationService<LoginViewModel>(
-                navigationStore,
-                () => new LoginViewModel(accountStore, navigationStore)));
+            NavigationBarViewModel = navigationBarViewModel;
+
+            NavigateAccountCommand = new NavigateCommand<LoginViewModel>(loginNavigationService);
         }
     }
 }

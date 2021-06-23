@@ -18,6 +18,6 @@ namespace NavigationMVVM.Stores
             }
         }
 
-
+        public bool IsLoggedIn => CurrentAccount != null;
     }
 }

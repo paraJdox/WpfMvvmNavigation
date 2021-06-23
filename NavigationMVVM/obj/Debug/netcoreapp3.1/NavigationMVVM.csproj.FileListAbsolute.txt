@@ -24,3 +24,5 @@ D:\Visual Studio\NavigationMVVM\NavigationMVVM\obj\Debug\netcoreapp3.1\Navigatio
 D:\Visual Studio\NavigationMVVM\NavigationMVVM\obj\Debug\netcoreapp3.1\NavigationMVVM.dll
 D:\Visual Studio\NavigationMVVM\NavigationMVVM\obj\Debug\netcoreapp3.1\NavigationMVVM.pdb
 D:\Visual Studio\NavigationMVVM\NavigationMVVM\obj\Debug\netcoreapp3.1\NavigationMVVM.genruntimeconfig.cache
+D:\Visual Studio\NavigationMVVM\NavigationMVVM\obj\Debug\netcoreapp3.1\Components\NavigationBar.g.cs
+D:\Visual Studio\NavigationMVVM\NavigationMVVM\obj\Debug\netcoreapp3.1\Components\NavigationBar.baml
