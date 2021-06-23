@@ -11,8 +11,7 @@ namespace NavigationMVVM.Services
     /// 
     /// (the Func<TViewModel> createViewModel) is the ViewModel that we want to create
     /// </summary>
-    public class NavigationService<TViewModel>
-         where TViewModel : ViewModelBase
+    public class NavigationService<TViewModel> : INavigationService<TViewModel> where TViewModel : ViewModelBase
 
     {
         private readonly NavigationStore _navigationStore;
