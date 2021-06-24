@@ -17,14 +17,14 @@ namespace NavigationMVVM.ViewModels
         public bool IsLoggedIn => _accountStore.IsLoggedIn;
 
         public NavigationBarViewModel(AccountStore accountStore,
-            INavigationService<HomeViewModel> homeNavigationService,
-            INavigationService<AccountViewModel> accountNavigationService,
-            INavigationService<LoginViewModel> loginNavigationService)
+            INavigationService homeNavigationService,
+            INavigationService accountNavigationService,
+            INavigationService loginNavigationService)
         {
             _accountStore = accountStore;
-            NavigateHomeCommand = new NavigateCommand<HomeViewModel>(homeNavigationService);
-            NavigateAccountCommand = new NavigateCommand<AccountViewModel>(accountNavigationService);
-            NavigateLoginCommand = new NavigateCommand<LoginViewModel>(loginNavigationService);
+            NavigateHomeCommand = new NavigateCommand(homeNavigationService);
+            NavigateAccountCommand = new NavigateCommand(accountNavigationService);
+            NavigateLoginCommand = new NavigateCommand(loginNavigationService);
             LogoutCommand = new LogoutCommand(_accountStore);
             _accountStore.CurrentAccountChanged += OnCurrentAccountChanged;
         }
@@ -33,6 +33,7 @@ namespace NavigationMVVM.ViewModels
         {
 
         }
+
         private void OnCurrentAccountChanged()
         {
             OnPropertyChanged(nameof(IsLoggedIn));
