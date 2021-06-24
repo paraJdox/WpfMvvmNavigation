@@ -14,11 +14,11 @@ namespace NavigationMVVM.ViewModels
 
         public ICommand NavigateHomeCommand { get; } //Gives a new value for the CurrentViewModel in the NavigationStore
 
-        public AccountViewModel(AccountStore accountStore, INavigationService<HomeViewModel> homeNavigationService)
+        public AccountViewModel(AccountStore accountStore, INavigationService homeNavigationService)
         {
             _accountStore = accountStore;
 
-            NavigateHomeCommand = new NavigateCommand<HomeViewModel>(homeNavigationService);
+            NavigateHomeCommand = new NavigateCommand(homeNavigationService);
 
             //notify this ViewModel (AccountViewModel) that the CurrentAccount has changed
             _accountStore.CurrentAccountChanged += OnCurrentAccountChanged;

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "btZpH/K4vdQD4AbyKEZQYQ7qiWQov5yvWa6Q+0AyR8uAyOaDzFkqRHrk/ep7rvIc9FoFzVBWwL0S7mjFLY3+7w==",
+  "dgSpecHash": "voqotjptlqhs32W2Fu1gjafnyVH4ZSnP1OJS6QDVoo/7EK1qfeKtM4vTL0JRQpqboJkWu1Jh9MkIB84++E8fMA==",
   "success": true,
   "projectFilePath": "D:\\Visual Studio\\NavigationMVVM\\NavigationMVVM\\NavigationMVVM.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\John\\.nuget\\packages\\simplemodal.wpf\\1.0.0\\simplemodal.wpf.1.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

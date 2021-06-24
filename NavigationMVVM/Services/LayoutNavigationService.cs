@@ -8,7 +8,7 @@ namespace NavigationMVVM.Services
     /// Wraps the View in a Layout, in this case a navbar and a content display
     /// </summary>
     /// <typeparam name="TViewModel">The ViewModel that we want to be wrapped in a layout</typeparam>
-    public class LayoutNavigationService<TViewModel> : INavigationService<TViewModel> where TViewModel : ViewModelBase
+    public class LayoutNavigationService<TViewModel> : INavigationService where TViewModel : ViewModelBase
     {
         private readonly NavigationStore _navigationStore;
 

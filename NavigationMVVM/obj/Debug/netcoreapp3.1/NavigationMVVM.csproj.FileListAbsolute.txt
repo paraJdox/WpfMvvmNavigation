@@ -28,3 +28,5 @@ D:\Visual Studio\NavigationMVVM\NavigationMVVM\obj\Debug\netcoreapp3.1\Component
 D:\Visual Studio\NavigationMVVM\NavigationMVVM\obj\Debug\netcoreapp3.1\Components\NavigationBar.baml
 D:\Visual Studio\NavigationMVVM\NavigationMVVM\obj\Debug\netcoreapp3.1\Components\Layout.g.cs
 D:\Visual Studio\NavigationMVVM\NavigationMVVM\obj\Debug\netcoreapp3.1\Components\Layout.baml
+D:\Visual Studio\NavigationMVVM\NavigationMVVM\bin\Debug\netcoreapp3.1\ModalControl.dll
+D:\Visual Studio\NavigationMVVM\NavigationMVVM\obj\Debug\netcoreapp3.1\NavigationMVVM.csproj.CopyComplete
